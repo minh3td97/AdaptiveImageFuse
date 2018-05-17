@@ -13,8 +13,8 @@ import convert
 import histogram_matching as hm
 import replaceWithSsim as rws
 
-ms_img = cv2.imread("image/2_MS.png")
-pan_img = cv2.imread("image/2_PAN.png", 0)
+ms_img = cv2.imread("image/3_MS.png")
+pan_img = cv2.imread("image/3_PAN.png", 0)
 
 
 def getIfromHSI(HSI_img):
@@ -46,10 +46,10 @@ hsi_new = editI2HSI(hsi_img, Inew)
 
 #result_img 
 rgb_result_img = convert.HSI2RGB(hsi_new)
-cv2.imwrite("result/result_2.png", rgb_result_img)
+cv2.imwrite("result/result_3.png", rgb_result_img)
 
 # combine MS_img and result_img 
 combine_img = np.concatenate((ms_img, rgb_result_img), axis=1)
-cv2.imwrite("combine/combine_2.png", combine_img)
+cv2.imwrite("combine/combine_3.png", combine_img)
 
 
