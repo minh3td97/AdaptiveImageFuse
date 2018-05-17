@@ -25,11 +25,14 @@ def replaceWithSsim(I, P, win_size=None, threshold=None):
 
     n, m = I.shape
     I_new = I.copy()
-
+    count=0
     for i in range(n):
         for j in range(m):
-            if (ssim_image[i][j] >= threshold):
-                I_new[i][j] = P[i][j]
+            if (ssim_image[i][j] > threshold):
+                count += 1
+                #print("ssim:" + str(ssim_image[i][j]) + ", thres: " + str(threshold)+" " + str(count))
+                #print("I: "+ str(I[i][j]) + ", P: " + str(P[i][j]) )
+                I_new.itemset((i, j), P.item(i, j))
 
     # cv2.imshow("I_new", I_new)
     # cv2.waitKey(0)

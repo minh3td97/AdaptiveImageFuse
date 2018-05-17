@@ -14,8 +14,8 @@ import histogram_matching as hm
 import replaceWithSsim as rws
 
 
-img = cv2.imread("image/2_MS.png")
+img = cv2.imread("image/21_MS.png")
 
-down_img = resample.downSample(img)
+down_img = cv2.blur(img,(3,3))
 
-cv2.imwrite("image/2_MS(o).png", down_img)
+cv2.imwrite("image/21_MS(b).png", down_img)
